@@ -9,10 +9,7 @@
             6,
             "2043333a-449f-464c-b15d-06804c8d5989",
             "01c569e5-13ee-4ed0-afcf-3b9d3c4b93d9",
-            "277d30f5-74a9-4c22-b66b-e75f1af3ae65",
-            "4b13a3ae-fd66-42f4-aef1-cde8e39a5660",
-            "f62d81fd-090d-4b71-a922-b3882a84cf90",
-            "5f90a6b3-7836-4e79-a440-47540941f725"
+            "fc4607de-d98f-4eee-800d-411c98442fdf"
         ],
         "decorators": [],
         "options": {}
@@ -117,7 +114,7 @@
             ]
         },
         "asset-pack": "core",
-        "parent": 1,
+        "parent": "fc4607de-d98f-4eee-800d-411c98442fdf",
         "decorators": [
             "c71b4bd5-9780-4b20-beae-a4119901c9bc"
         ]
@@ -152,7 +149,7 @@
             ]
         },
         "asset-pack": "core",
-        "parent": 1
+        "parent": "fc4607de-d98f-4eee-800d-411c98442fdf"
     },
     "d3888fcc-2fb6-4101-a32e-0a9b8232ab7d": {
         "id": "d3888fcc-2fb6-4101-a32e-0a9b8232ab7d",
@@ -223,10 +220,19 @@
                 "                     }",
                 "                }",
                 "              }",
-                "              notepad.mostApparentEmotion = mostApparentEmotion;",
-                "              notepad.mostApparenteEmotionCertainty = mostApparentEmotionCertainty;",
+                "              //notepad.mostApparentEmotion = mostApparentEmotion;",
+                "              //for testing we hardcode to sad",
+                "              notepad.mostApparentEmotion = \"neutral\";",
+                "              notepad.mostApparentEmotionCertainty = mostApparentEmotionCertainty;",
                 "              console.log('most apparent emotion', mostApparentEmotion);",
-                "              console.log(mostApparentEmotion, mostApparentEmotionCertainty);",
+                "              console.log(notepad.mostApparentEmotion, mostApparentEmotionCertainty);",
+                "              ",
+                "              // set the texture of the sprite to the imageURL",
+                "              notepad.photo.texture = PIXI.Texture.fromImage(notepad.imageUrl);",
+                "                ",
+                "              // add the sprite to the stage",
+                "              jibo.face.stage.addChild(notepad.photo);",
+                "              notepad.emotionLoaded = true;",
                 "          });",
                 "      }",
                 "    });",
@@ -237,7 +243,7 @@
             ]
         },
         "asset-pack": "core",
-        "parent": 1
+        "parent": "fc4607de-d98f-4eee-800d-411c98442fdf"
     },
     "83c8bbac-0b10-4e2b-8c46-0e43872b02b0": {
         "id": "83c8bbac-0b10-4e2b-8c46-0e43872b02b0",
@@ -261,7 +267,7 @@
             "succeedOnOne": false
         },
         "asset-pack": "core",
-        "parent": 1,
+        "parent": "fc4607de-d98f-4eee-800d-411c98442fdf",
         "children": [
             "83c8bbac-0b10-4e2b-8c46-0e43872b02b0",
             "d3888fcc-2fb6-4101-a32e-0a9b8232ab7d"
@@ -276,6 +282,196 @@
             "onReceived": [
                 "(animFileName, payload) => {",
                 "  console.log('photo shot');",
+                "}"
+            ]
+        },
+        "asset-pack": "core"
+    },
+    "defaeebb-ebb0-406f-b4a8-3a3a20d0bc98": {
+        "id": "defaeebb-ebb0-406f-b4a8-3a3a20d0bc98",
+        "class": "Subtree",
+        "name": "happy emotion action",
+        "options": {
+            "behaviorPath": "happy.bt",
+            "getNotepad": [
+                "() => {",
+                "    return {};",
+                "}"
+            ],
+            "onResult": [
+                "(treeResult) => {",
+                "}"
+            ]
+        },
+        "asset-pack": "core",
+        "parent": "63330a0a-5803-421b-b383-89da3c8220a2",
+        "decorators": [
+            "edc71ebb-6af3-4bb9-9b3d-2a1fd2bc0c17"
+        ]
+    },
+    "8d291747-8d52-4e16-8b7d-2f1d1db4bd9b": {
+        "id": "8d291747-8d52-4e16-8b7d-2f1d1db4bd9b",
+        "class": "Subtree",
+        "name": "sad emotion action",
+        "options": {
+            "behaviorPath": "sad.bt",
+            "getNotepad": [
+                "() => {",
+                "    return {};",
+                "}"
+            ],
+            "onResult": [
+                "(treeResult) => {",
+                "}"
+            ]
+        },
+        "asset-pack": "core",
+        "parent": "63330a0a-5803-421b-b383-89da3c8220a2",
+        "decorators": [
+            "b03ce86d-e1c9-4b2c-8ccd-b27dd2baf6df"
+        ]
+    },
+    "c570e8b9-2feb-488f-93cc-9ed7e8c92752": {
+        "id": "c570e8b9-2feb-488f-93cc-9ed7e8c92752",
+        "class": "Subtree",
+        "name": "neutral emotion action",
+        "options": {
+            "behaviorPath": "neutral.bt",
+            "getNotepad": [
+                "() => {",
+                "    return {};",
+                "}"
+            ],
+            "onResult": [
+                "(treeResult) => {",
+                "}"
+            ]
+        },
+        "asset-pack": "core",
+        "parent": "63330a0a-5803-421b-b383-89da3c8220a2",
+        "decorators": [
+            "9a7e885a-f735-412a-ac37-8b0d18f6704e"
+        ]
+    },
+    "fc4607de-d98f-4eee-800d-411c98442fdf": {
+        "id": "fc4607de-d98f-4eee-800d-411c98442fdf",
+        "class": "Sequence",
+        "name": "",
+        "options": {},
+        "asset-pack": "core",
+        "parent": 1,
+        "decorators": [
+            "ae712ced-a3fe-42a9-a864-b8feb1eac174"
+        ],
+        "children": [
+            "277d30f5-74a9-4c22-b66b-e75f1af3ae65",
+            "4b13a3ae-fd66-42f4-aef1-cde8e39a5660",
+            "f62d81fd-090d-4b71-a922-b3882a84cf90",
+            "5f90a6b3-7836-4e79-a440-47540941f725",
+            "63330a0a-5803-421b-b383-89da3c8220a2"
+        ]
+    },
+    "ae712ced-a3fe-42a9-a864-b8feb1eac174": {
+        "id": "ae712ced-a3fe-42a9-a864-b8feb1eac174",
+        "class": "WhileCondition",
+        "name": "",
+        "options": {
+            "init": [
+                "() => {",
+                "}"
+            ],
+            "conditional": [
+                "() => {",
+                "    notepad = {};",
+                "    return true;",
+                "}"
+            ]
+        },
+        "asset-pack": "core"
+    },
+    "edc71ebb-6af3-4bb9-9b3d-2a1fd2bc0c17": {
+        "id": "edc71ebb-6af3-4bb9-9b3d-2a1fd2bc0c17",
+        "class": "Case",
+        "name": "",
+        "options": {
+            "conditional": [
+                "() => {",
+                "    if (notepad.mostApparentEmotion === \"happiness\") {",
+                "        notepad.emotionExecuted = true;",
+                "    }",
+                "    return notepad.mostApparentEmotion === \"happiness\";",
+                "}"
+            ]
+        },
+        "asset-pack": "core"
+    },
+    "b03ce86d-e1c9-4b2c-8ccd-b27dd2baf6df": {
+        "id": "b03ce86d-e1c9-4b2c-8ccd-b27dd2baf6df",
+        "class": "Case",
+        "name": "",
+        "options": {
+            "conditional": [
+                "() => {",
+                "  if (notepad.emotionLoaded !== true) {",
+                "      return false;",
+                "  } ",
+                "  console.log(\"emotion is loaded!\");",
+                "  if (notepad.mostApparentEmotion === \"sadness\") {",
+                "      console.log(\"set emotion executed true\");",
+                "      notepad.emotionExecuted = true;",
+                "  }",
+                "    return notepad.mostApparentEmotion === \"sadness\";",
+                "}"
+            ]
+        },
+        "asset-pack": "core"
+    },
+    "9a7e885a-f735-412a-ac37-8b0d18f6704e": {
+        "id": "9a7e885a-f735-412a-ac37-8b0d18f6704e",
+        "class": "Case",
+        "name": "",
+        "options": {
+            "conditional": [
+                "() => {",
+                "",
+                "    console.log(\"in switch emotion:\", notepad.mostApparentEmotion);",
+                "    if (notepad.mostApparentEmotion === \"neutral\") {",
+                "        notepad.emotionExecuted = true;",
+                "    }",
+                "    return notepad.mostApparentEmotion === \"neutral\";",
+                "}"
+            ]
+        },
+        "asset-pack": "core"
+    },
+    "63330a0a-5803-421b-b383-89da3c8220a2": {
+        "id": "63330a0a-5803-421b-b383-89da3c8220a2",
+        "class": "Switch",
+        "name": "",
+        "options": {},
+        "asset-pack": "core",
+        "parent": "fc4607de-d98f-4eee-800d-411c98442fdf",
+        "decorators": [
+            "3e92444f-a8cb-4738-a903-7d1f4eda9023"
+        ],
+        "children": [
+            "c570e8b9-2feb-488f-93cc-9ed7e8c92752",
+            "8d291747-8d52-4e16-8b7d-2f1d1db4bd9b",
+            "defaeebb-ebb0-406f-b4a8-3a3a20d0bc98"
+        ]
+    },
+    "3e92444f-a8cb-4738-a903-7d1f4eda9023": {
+        "id": "3e92444f-a8cb-4738-a903-7d1f4eda9023",
+        "class": "StartOnCondition",
+        "name": "",
+        "options": {
+            "init": [
+                "() => {",
+                "}"
+            ],
+            "conditional": [
+                "() => {",
+                "  return notepad.emotionLoaded === true;",
                 "}"
             ]
         },

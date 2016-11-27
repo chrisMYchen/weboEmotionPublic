@@ -1,0 +1,98 @@
+{
+    "3": {
+        "id": 3,
+        "class": "Parallel",
+        "name": "",
+        "asset-pack": "core",
+        "children": [
+            19
+        ],
+        "decorators": [],
+        "options": {
+            "succeedOnOne": false
+        }
+    },
+    "19": {
+        "id": 19,
+        "class": "Sequence",
+        "name": "",
+        "asset-pack": "core",
+        "parent": 3,
+        "children": [
+            21,
+            "cc51d60c-7885-4c54-aefd-e85bf429ec3b",
+            20,
+            "acde757f-7c5c-4ca2-b6bf-8f34d8e84c4c",
+            "c902854f-bf2c-414c-a724-5ac1f96c8651"
+        ],
+        "decorators": [],
+        "options": {}
+    },
+    "20": {
+        "id": 20,
+        "class": "Blink",
+        "asset-pack": "core",
+        "parent": 19,
+        "name": "Plays a blink animation",
+        "options": {}
+    },
+    "21": {
+        "id": 21,
+        "class": "TimeoutJs",
+        "name": "Pause for a bit",
+        "asset-pack": "core",
+        "parent": 19,
+        "options": {
+            "getTime": [
+                "() => {",
+                "   return 2000 + 2500 * Math.random();",
+                "}"
+            ]
+        }
+    },
+    "meta": {
+        "version": 1
+    },
+    "acde757f-7c5c-4ca2-b6bf-8f34d8e84c4c": {
+        "id": "acde757f-7c5c-4ca2-b6bf-8f34d8e84c4c",
+        "class": "TimeoutJs",
+        "asset-pack": "core",
+        "parent": 19,
+        "name": "Pause for a bit",
+        "options": {
+            "getTime": [
+                "() => {",
+                "   return 1000 + 2000 * Math.random();",
+                "}"
+            ]
+        }
+    },
+    "c902854f-bf2c-414c-a724-5ac1f96c8651": {
+        "id": "c902854f-bf2c-414c-a724-5ac1f96c8651",
+        "class": "PlayAnimation",
+        "name": "neutral event",
+        "options": {
+            "animPath": "neutralEmotion.keys",
+            "config": [
+                "(animation) => {",
+                "}"
+            ]
+        },
+        "asset-pack": "core",
+        "parent": 19
+    },
+    "cc51d60c-7885-4c54-aefd-e85bf429ec3b": {
+        "id": "cc51d60c-7885-4c54-aefd-e85bf429ec3b",
+        "class": "TextToSpeech",
+        "name": "",
+        "options": {
+            "words": "another day, another dollar",
+            "onWord": [
+                "(word) => {",
+                "}"
+            ]
+        },
+        "asset-pack": "core",
+        "parent": 19
+    }
+}

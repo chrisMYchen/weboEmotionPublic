@@ -1,0 +1,116 @@
+{
+    "3": {
+        "id": 3,
+        "class": "Parallel",
+        "name": "",
+        "asset-pack": "core",
+        "children": [
+            19
+        ],
+        "decorators": [],
+        "options": {
+            "succeedOnOne": false
+        }
+    },
+    "18": {
+        "id": 18,
+        "class": "TimeoutJs",
+        "asset-pack": "core",
+        "parent": 19,
+        "name": "Pause for a bit",
+        "options": {
+            "getTime": [
+                "() => {",
+                "   return 1000 + 2000 * Math.random();",
+                "}"
+            ]
+        }
+    },
+    "19": {
+        "id": 19,
+        "class": "Sequence",
+        "name": "",
+        "asset-pack": "core",
+        "parent": 3,
+        "children": [
+            21,
+            "49af6eb2-0410-4a74-91aa-989d4b1d6344",
+            20,
+            "96f15073-5d7b-4c7c-b06b-efc752360d1f",
+            18,
+            "2a9d349d-6dee-4686-ac14-96cb442971b7"
+        ],
+        "decorators": [],
+        "options": {}
+    },
+    "20": {
+        "id": 20,
+        "class": "Blink",
+        "asset-pack": "core",
+        "parent": 19,
+        "name": "Plays a blink animation",
+        "options": {}
+    },
+    "21": {
+        "id": 21,
+        "class": "TimeoutJs",
+        "name": "Pause for a bit",
+        "asset-pack": "core",
+        "parent": 19,
+        "options": {
+            "getTime": [
+                "() => {",
+                "   return 2000 + 2500 * Math.random();",
+                "}"
+            ]
+        }
+    },
+    "meta": {
+        "version": 1
+    },
+    "96f15073-5d7b-4c7c-b06b-efc752360d1f": {
+        "id": "96f15073-5d7b-4c7c-b06b-efc752360d1f",
+        "class": "LookAt",
+        "name": "Choose place to look up",
+        "asset-pack": "core",
+        "parent": 19,
+        "options": {
+            "getTarget": [
+                "() => {",
+                "    let x = 1;",
+                "    let y = 1 + .01 * (Math.random()-0.5);",
+                "    let z = 1 + (.01 * (Math.random()-0.5));",
+                "    return {x: x, y: y, z: z};",
+                "}"
+            ]
+        }
+    },
+    "2a9d349d-6dee-4686-ac14-96cb442971b7": {
+        "id": "2a9d349d-6dee-4686-ac14-96cb442971b7",
+        "class": "PlayAnimation",
+        "name": "play excited",
+        "options": {
+            "animPath": "happinessEmotion.keys",
+            "config": [
+                "(animation) => {",
+                "}"
+            ]
+        },
+        "asset-pack": "core",
+        "parent": 19
+    },
+    "49af6eb2-0410-4a74-91aa-989d4b1d6344": {
+        "id": "49af6eb2-0410-4a74-91aa-989d4b1d6344",
+        "class": "TextToSpeech",
+        "name": "",
+        "options": {
+            "words": "Yeah! Yeah! That's it! HAhahaha",
+            "onWord": [
+                "(word) => {",
+                "}"
+            ]
+        },
+        "asset-pack": "core",
+        "parent": 19
+    }
+}

@@ -1,0 +1,116 @@
+{
+    "3": {
+        "id": 3,
+        "class": "Parallel",
+        "name": "",
+        "asset-pack": "core",
+        "children": [
+            19
+        ],
+        "decorators": [],
+        "options": {
+            "succeedOnOne": false
+        }
+    },
+    "18": {
+        "id": 18,
+        "class": "TimeoutJs",
+        "asset-pack": "core",
+        "parent": 19,
+        "name": "Pause for a bit",
+        "options": {
+            "getTime": [
+                "() => {",
+                "   return 1000 + 2000 * Math.random();",
+                "}"
+            ]
+        }
+    },
+    "19": {
+        "id": 19,
+        "class": "Sequence",
+        "name": "",
+        "asset-pack": "core",
+        "parent": 3,
+        "children": [
+            21,
+            "30738dcb-0d00-4c79-8a7c-318e65748f9e",
+            20,
+            "96f15073-5d7b-4c7c-b06b-efc752360d1f",
+            18,
+            "983dee22-7ae9-4c22-b9c4-0b140c71d8fe"
+        ],
+        "decorators": [],
+        "options": {}
+    },
+    "20": {
+        "id": 20,
+        "class": "Blink",
+        "asset-pack": "core",
+        "parent": 19,
+        "name": "Plays a blink animation",
+        "options": {}
+    },
+    "21": {
+        "id": 21,
+        "class": "TimeoutJs",
+        "name": "Pause for a bit",
+        "asset-pack": "core",
+        "parent": 19,
+        "options": {
+            "getTime": [
+                "() => {",
+                "   return 2000 + 2500 * Math.random();",
+                "}"
+            ]
+        }
+    },
+    "meta": {
+        "version": 1
+    },
+    "96f15073-5d7b-4c7c-b06b-efc752360d1f": {
+        "id": "96f15073-5d7b-4c7c-b06b-efc752360d1f",
+        "class": "LookAt",
+        "name": "Choose place to look down",
+        "asset-pack": "core",
+        "parent": 19,
+        "options": {
+            "getTarget": [
+                "() => {",
+                "    let x = -1;",
+                "    let y = -1 - (.01 * (Math.random()- 0.5));",
+                "    let z = -1 - (0.5 * (Math.random() - 0.5));",
+                "    return {x: x, y: y, z: z};",
+                "}"
+            ]
+        }
+    },
+    "983dee22-7ae9-4c22-b9c4-0b140c71d8fe": {
+        "id": "983dee22-7ae9-4c22-b9c4-0b140c71d8fe",
+        "class": "PlayAnimation",
+        "name": "nod the head for a bit",
+        "options": {
+            "animPath": "sadnessEmotion.keys",
+            "config": [
+                "(animation) => {",
+                "}"
+            ]
+        },
+        "asset-pack": "core",
+        "parent": 19
+    },
+    "30738dcb-0d00-4c79-8a7c-318e65748f9e": {
+        "id": "30738dcb-0d00-4c79-8a7c-318e65748f9e",
+        "class": "TextToSpeech",
+        "name": "",
+        "options": {
+            "words": "phoooooooo i am  sad too.",
+            "onWord": [
+                "(word) => {",
+                "}"
+            ]
+        },
+        "asset-pack": "core",
+        "parent": 19
+    }
+}
