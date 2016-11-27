@@ -8,7 +8,8 @@
   },
   "dependencies": {
     "behaviorify": "^1.0.0",
-    "jibo": "^3.0.0"
+    "jibo": "^3.0.0",
+    "node-oxford-emotion": "^1.0.4"
   },
   "license": "UNLICENSED"
 }
