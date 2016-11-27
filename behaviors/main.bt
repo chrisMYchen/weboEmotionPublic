@@ -1,0 +1,172 @@
+{
+    "1": {
+        "id": 1,
+        "class": "Sequence",
+        "name": "",
+        "asset-pack": "core",
+        "children": [
+            4,
+            6,
+            "2043333a-449f-464c-b15d-06804c8d5989",
+            "01c569e5-13ee-4ed0-afcf-3b9d3c4b93d9",
+            "277d30f5-74a9-4c22-b66b-e75f1af3ae65",
+            "4b13a3ae-fd66-42f4-aef1-cde8e39a5660",
+            "d3888fcc-2fb6-4101-a32e-0a9b8232ab7d"
+        ],
+        "decorators": [],
+        "options": {}
+    },
+    "4": {
+        "id": 4,
+        "class": "PlayAnimation",
+        "name": "Play a greeting",
+        "asset-pack": "core",
+        "parent": 1,
+        "options": {
+            "animPath": "greeting.keys",
+            "config": [
+                "(animation) => {",
+                "}"
+            ]
+        }
+    },
+    "6": {
+        "id": 6,
+        "class": "PlayAudio",
+        "name": "Bawhoop",
+        "asset-pack": "core",
+        "parent": 1,
+        "options": {
+            "audioPath": "FX_Bawhoop.mp3"
+        }
+    },
+    "meta": {
+        "version": 1
+    },
+    "2043333a-449f-464c-b15d-06804c8d5989": {
+        "id": "2043333a-449f-464c-b15d-06804c8d5989",
+        "class": "Subtree",
+        "name": "Idle",
+        "options": {
+            "behaviorPath": "idle.bt",
+            "getNotepad": [
+                "() => {",
+                "    return {};",
+                "}"
+            ],
+            "onResult": [
+                "(treeResult) => {",
+                "}"
+            ]
+        },
+        "asset-pack": "core",
+        "parent": 1,
+        "decorators": [
+            "97aaa2f5-719f-46e4-90da-bc71f9e5ba89"
+        ]
+    },
+    "97aaa2f5-719f-46e4-90da-bc71f9e5ba89": {
+        "id": "97aaa2f5-719f-46e4-90da-bc71f9e5ba89",
+        "class": "SucceedOnEmbedded",
+        "name": "",
+        "options": {
+            "rule": "hey_jibo",
+            "onResult": [
+                "(listener) => {",
+                "\tlistener.on('hey-jibo', function(asrResult, speakerIds) {",
+                "",
+                "\t});",
+                "}"
+            ]
+        },
+        "asset-pack": "core"
+    },
+    "01c569e5-13ee-4ed0-afcf-3b9d3c4b93d9": {
+        "id": "01c569e5-13ee-4ed0-afcf-3b9d3c4b93d9",
+        "class": "PlayAudio",
+        "name": "Response when no longer idle",
+        "options": {
+            "audioPath": "FX_Bleep.mp3"
+        },
+        "asset-pack": "core",
+        "parent": 1
+    },
+    "277d30f5-74a9-4c22-b66b-e75f1af3ae65": {
+        "id": "277d30f5-74a9-4c22-b66b-e75f1af3ae65",
+        "class": "LookAt",
+        "name": "Find nearest target - person to interact with",
+        "options": {
+            "getTarget": [
+                "() => {",
+                "    let entity = jibo.lps.getClosestVisualEntity();",
+                "    notepad.foundFace = false;",
+                "    let position = {x: 1, y: 0, z: 1};",
+                "    if (entity) {",
+                "        //If this entity exists, then we set our target position and foundFace is now true",
+                "        position = {x: entity.position.x, y: entity.position.y, z: entity.position.z};",
+                "        notepad.foundFace = true;",
+                "    }",
+                "    return position;",
+                "}"
+            ],
+            "isContinuous": false,
+            "config": [
+                "(lookAt) => {",
+                "}"
+            ]
+        },
+        "asset-pack": "core",
+        "parent": 1,
+        "decorators": [
+            "c71b4bd5-9780-4b20-beae-a4119901c9bc"
+        ]
+    },
+    "c71b4bd5-9780-4b20-beae-a4119901c9bc": {
+        "id": "c71b4bd5-9780-4b20-beae-a4119901c9bc",
+        "class": "WhileCondition",
+        "name": "",
+        "options": {
+            "init": [
+                "() => {",
+                "}"
+            ],
+            "conditional": [
+                "() => {",
+                "    //Continue to try to find face in viewport until we lock onto a target",
+                "    return (notepad.foundFace !== true);",
+                "}"
+            ]
+        },
+        "asset-pack": "core"
+    },
+    "4b13a3ae-fd66-42f4-aef1-cde8e39a5660": {
+        "id": "4b13a3ae-fd66-42f4-aef1-cde8e39a5660",
+        "class": "TextToSpeech",
+        "name": "",
+        "options": {
+            "words": "There you are! How are you feeling?",
+            "onWord": [
+                "(word) => {",
+                "}"
+            ]
+        },
+        "asset-pack": "core",
+        "parent": 1
+    },
+    "d3888fcc-2fb6-4101-a32e-0a9b8232ab7d": {
+        "id": "d3888fcc-2fb6-4101-a32e-0a9b8232ab7d",
+        "class": "TakePhoto",
+        "name": "",
+        "options": {
+            "resolution": 2,
+            "onPhoto": [
+                "(error, imageUrl) => {",
+                "  notepad.imageUrl = imageUrl;",
+                "}"
+            ],
+            "noDistortion": true
+        },
+        "asset-pack": "core",
+        "parent": 1
+    }
+}
