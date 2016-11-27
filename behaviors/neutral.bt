@@ -45,7 +45,7 @@
         "options": {
             "getTime": [
                 "() => {",
-                "   return 2000 + 2500 * Math.random();",
+                "   return 300 + 500 * Math.random();",
                 "}"
             ]
         }
@@ -62,7 +62,7 @@
         "options": {
             "getTime": [
                 "() => {",
-                "   return 1000 + 2000 * Math.random();",
+                "   return 500 + 500 * Math.random();",
                 "}"
             ]
         }

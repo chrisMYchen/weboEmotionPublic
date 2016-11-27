@@ -222,7 +222,7 @@
                 "              }",
                 "              //notepad.mostApparentEmotion = mostApparentEmotion;",
                 "              //for testing we hardcode to sad",
-                "              notepad.mostApparentEmotion = \"neutral\";",
+                "              notepad.mostApparentEmotion = \"sadness\";",
                 "              notepad.mostApparentEmotionCertainty = mostApparentEmotionCertainty;",
                 "              console.log('most apparent emotion', mostApparentEmotion);",
                 "              console.log(notepad.mostApparentEmotion, mostApparentEmotionCertainty);",
@@ -304,9 +304,9 @@
             ]
         },
         "asset-pack": "core",
-        "parent": "63330a0a-5803-421b-b383-89da3c8220a2",
+        "parent": "76bef518-21a1-48d8-a56b-494e7c7b8556",
         "decorators": [
-            "edc71ebb-6af3-4bb9-9b3d-2a1fd2bc0c17"
+            "420b7f98-892d-43b8-9dd7-6040890f4839"
         ]
     },
     "8d291747-8d52-4e16-8b7d-2f1d1db4bd9b": {
@@ -326,9 +326,9 @@
             ]
         },
         "asset-pack": "core",
-        "parent": "63330a0a-5803-421b-b383-89da3c8220a2",
+        "parent": "76bef518-21a1-48d8-a56b-494e7c7b8556",
         "decorators": [
-            "b03ce86d-e1c9-4b2c-8ccd-b27dd2baf6df"
+            "bd606482-62a1-47b4-a852-1c171947c4c9"
         ]
     },
     "c570e8b9-2feb-488f-93cc-9ed7e8c92752": {
@@ -348,9 +348,9 @@
             ]
         },
         "asset-pack": "core",
-        "parent": "63330a0a-5803-421b-b383-89da3c8220a2",
+        "parent": "76bef518-21a1-48d8-a56b-494e7c7b8556",
         "decorators": [
-            "9a7e885a-f735-412a-ac37-8b0d18f6704e"
+            "b4a85386-af59-4231-a1d7-1a20bdbeb417"
         ]
     },
     "fc4607de-d98f-4eee-800d-411c98442fdf": {
@@ -389,75 +389,20 @@
         },
         "asset-pack": "core"
     },
-    "edc71ebb-6af3-4bb9-9b3d-2a1fd2bc0c17": {
-        "id": "edc71ebb-6af3-4bb9-9b3d-2a1fd2bc0c17",
-        "class": "Case",
-        "name": "",
-        "options": {
-            "conditional": [
-                "() => {",
-                "    if (notepad.mostApparentEmotion === \"happiness\") {",
-                "        notepad.emotionExecuted = true;",
-                "    }",
-                "    return notepad.mostApparentEmotion === \"happiness\";",
-                "}"
-            ]
-        },
-        "asset-pack": "core"
-    },
-    "b03ce86d-e1c9-4b2c-8ccd-b27dd2baf6df": {
-        "id": "b03ce86d-e1c9-4b2c-8ccd-b27dd2baf6df",
-        "class": "Case",
-        "name": "",
-        "options": {
-            "conditional": [
-                "() => {",
-                "  if (notepad.emotionLoaded !== true) {",
-                "      return false;",
-                "  } ",
-                "  console.log(\"emotion is loaded!\");",
-                "  if (notepad.mostApparentEmotion === \"sadness\") {",
-                "      console.log(\"set emotion executed true\");",
-                "      notepad.emotionExecuted = true;",
-                "  }",
-                "    return notepad.mostApparentEmotion === \"sadness\";",
-                "}"
-            ]
-        },
-        "asset-pack": "core"
-    },
-    "9a7e885a-f735-412a-ac37-8b0d18f6704e": {
-        "id": "9a7e885a-f735-412a-ac37-8b0d18f6704e",
-        "class": "Case",
-        "name": "",
-        "options": {
-            "conditional": [
-                "() => {",
-                "",
-                "    console.log(\"in switch emotion:\", notepad.mostApparentEmotion);",
-                "    if (notepad.mostApparentEmotion === \"neutral\") {",
-                "        notepad.emotionExecuted = true;",
-                "    }",
-                "    return notepad.mostApparentEmotion === \"neutral\";",
-                "}"
-            ]
-        },
-        "asset-pack": "core"
-    },
     "63330a0a-5803-421b-b383-89da3c8220a2": {
         "id": "63330a0a-5803-421b-b383-89da3c8220a2",
-        "class": "Switch",
+        "class": "Sequence",
         "name": "",
         "options": {},
         "asset-pack": "core",
         "parent": "fc4607de-d98f-4eee-800d-411c98442fdf",
+        "children": [
+            "2e25ee89-0cb2-4a80-99fe-511888396e85",
+            "c5756e1b-0a9c-432f-8eac-0f87d0ecd51c",
+            "76bef518-21a1-48d8-a56b-494e7c7b8556"
+        ],
         "decorators": [
             "3e92444f-a8cb-4738-a903-7d1f4eda9023"
-        ],
-        "children": [
-            "c570e8b9-2feb-488f-93cc-9ed7e8c92752",
-            "8d291747-8d52-4e16-8b7d-2f1d1db4bd9b",
-            "defaeebb-ebb0-406f-b4a8-3a3a20d0bc98"
         ]
     },
     "3e92444f-a8cb-4738-a903-7d1f4eda9023": {
@@ -472,6 +417,86 @@
             "conditional": [
                 "() => {",
                 "  return notepad.emotionLoaded === true;",
+                "}"
+            ]
+        },
+        "asset-pack": "core"
+    },
+    "c5756e1b-0a9c-432f-8eac-0f87d0ecd51c": {
+        "id": "c5756e1b-0a9c-432f-8eac-0f87d0ecd51c",
+        "class": "ExecuteScript",
+        "name": "remove photo, and return eye",
+        "options": {
+            "exec": [
+                "() => {",
+                "  jibo.face.stage.removeChild(notepad.photo);",
+                "}"
+            ]
+        },
+        "asset-pack": "core",
+        "parent": "63330a0a-5803-421b-b383-89da3c8220a2"
+    },
+    "2e25ee89-0cb2-4a80-99fe-511888396e85": {
+        "id": "2e25ee89-0cb2-4a80-99fe-511888396e85",
+        "class": "TimeoutJs",
+        "name": "show photo briefly",
+        "options": {
+            "getTime": [
+                "() => {",
+                "    return 1000;",
+                "}"
+            ]
+        },
+        "asset-pack": "core",
+        "parent": "63330a0a-5803-421b-b383-89da3c8220a2"
+    },
+    "76bef518-21a1-48d8-a56b-494e7c7b8556": {
+        "id": "76bef518-21a1-48d8-a56b-494e7c7b8556",
+        "class": "Switch",
+        "name": "",
+        "options": {},
+        "asset-pack": "core",
+        "parent": "63330a0a-5803-421b-b383-89da3c8220a2",
+        "children": [
+            "defaeebb-ebb0-406f-b4a8-3a3a20d0bc98",
+            "8d291747-8d52-4e16-8b7d-2f1d1db4bd9b",
+            "c570e8b9-2feb-488f-93cc-9ed7e8c92752"
+        ]
+    },
+    "420b7f98-892d-43b8-9dd7-6040890f4839": {
+        "id": "420b7f98-892d-43b8-9dd7-6040890f4839",
+        "class": "Case",
+        "name": "",
+        "options": {
+            "conditional": [
+                "() => {",
+                "  return notepad.mostApparentEmotion === \"happiness\";",
+                "}"
+            ]
+        },
+        "asset-pack": "core"
+    },
+    "bd606482-62a1-47b4-a852-1c171947c4c9": {
+        "id": "bd606482-62a1-47b4-a852-1c171947c4c9",
+        "class": "Case",
+        "name": "",
+        "options": {
+            "conditional": [
+                "() => {",
+                "  return notepad.mostApparentEmotion === \"sadness\";",
+                "}"
+            ]
+        },
+        "asset-pack": "core"
+    },
+    "b4a85386-af59-4231-a1d7-1a20bdbeb417": {
+        "id": "b4a85386-af59-4231-a1d7-1a20bdbeb417",
+        "class": "Case",
+        "name": "",
+        "options": {
+            "conditional": [
+                "() => {",
+                "  return notepad.mostApparentEmotion === \"neutral\";",
                 "}"
             ]
         },
