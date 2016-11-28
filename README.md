@@ -37,4 +37,6 @@ Start at /behaviors/main.bt
 1. Clone this repo locally
 2. Navigate to this directory via terminal and npm i (Must have node and node package manager)
 3. Install JiboSDK through atom
-4. Once registered/with proper login access, run the project!
+4. Once registered/with proper login access, open project!
+5. Generate Microsoft API Key https://www.microsoft.com/cognitive-services/en-us/emotion-api and replace line 27 in the first ExecuteScript with this key.
+6. Run this skill!

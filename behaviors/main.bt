@@ -222,7 +222,7 @@
                 "              }",
                 "              notepad.mostApparentEmotion = mostApparentEmotion;",
                 "              //for testing we hardcode different emotions",
-                "              notepad.mostApparentEmotion = \"neutral\";",
+                "              //notepad.mostApparentEmotion = \"neutral\";",
                 "              notepad.mostApparentEmotionCertainty = mostApparentEmotionCertainty;",
                 "              console.log('most apparent emotion', mostApparentEmotion);",
                 "              console.log(notepad.mostApparentEmotion, mostApparentEmotionCertainty);",
