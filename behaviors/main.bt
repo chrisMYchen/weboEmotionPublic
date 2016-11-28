@@ -202,7 +202,7 @@
                 "          console.log(err);",
                 "      }",
                 "      else {",
-                "          let oxfordEmotion = require(\"node-oxford-emotion\")(\"3e43fabb36c940eaaa66b84ab5840869\");",
+                "          let oxfordEmotion = require(\"node-oxford-emotion\")(\"MICROSOFT-API-KEY\");",
                 "          bitmap = fs.readFileSync(dateString);",
                 "          imageAsBinaryData = new Buffer(bitmap.toString('binary'),'binary');",
                 "          //Now with this saved file, we use the Emotion API",
