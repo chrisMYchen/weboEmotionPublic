@@ -9,7 +9,8 @@
   "dependencies": {
     "behaviorify": "^1.0.0",
     "jibo": "^3.0.0",
-    "node-oxford-emotion": "^1.0.4"
+    "node-oxford-emotion": "^1.0.4",
+    "pixi": "^4.0.3"
   },
   "license": "UNLICENSED"
 }
